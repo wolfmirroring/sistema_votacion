@@ -1,3 +1,13 @@
+"""
+Sistema de Votación Simple
+Actividad: ramas y versionado con Git (SENA - ADSO)
+
+Cada función se implementa en una rama distinta:
+  - rama-registro   -> registrar_voto()
+  - rama-resultados -> ver_resultados()
+  - rama-reinicio   -> reiniciar_votacion()
+"""
+
 # Candidatos disponibles para votar
 CANDIDATOS = ["Candidato A", "Candidato B", "Candidato C"]
 
@@ -11,10 +21,21 @@ votantes = {}
 def registrar_voto(id_persona, candidato):
     """
     Registra el voto de una persona.
-    Debe validar que la persona no haya votado antes
-    y que el candidato exista. (Implementar en rama-registro)
+    Valida que la persona no haya votado antes
+    y que el candidato exista.
     """
-    raise NotImplementedError("Pendiente: implementar en rama-registro")
+    if id_persona in votantes:
+        print(f"⚠️  La persona '{id_persona}' ya votó por '{votantes[id_persona]}'.")
+        return False
+
+    if candidato not in votos:
+        print(f"⚠️  El candidato '{candidato}' no existe. Opciones: {', '.join(CANDIDATOS)}")
+        return False
+
+    votos[candidato] += 1
+    votantes[id_persona] = candidato
+    print(f"✅ Voto registrado: '{id_persona}' votó por '{candidato}'.")
+    return True
 
 
 def ver_resultados():
