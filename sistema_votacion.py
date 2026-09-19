@@ -31,9 +31,20 @@ def ver_resultados():
     """
     Muestra el conteo de votos y el porcentaje que representa
     cada candidato sobre el total de votos emitidos.
-    (Implementar en rama-resultados)
     """
-    raise NotImplementedError("Pendiente: implementar en rama-resultados")
+    total = sum(votos.values())
+
+    print("\n--- RESULTADOS ---")
+    if total == 0:
+        print("Aún no se han registrado votos.")
+        return
+
+    # Ordena de mayor a menor cantidad de votos
+    for candidato, cantidad in sorted(votos.items(), key=lambda x: x[1], reverse=True):
+        porcentaje = (cantidad / total) * 100
+        print(f"{candidato}: {cantidad} votos ({porcentaje:.1f}%)")
+
+    print(f"Total de votos: {total}")
 
 
 def reiniciar_votacion():
