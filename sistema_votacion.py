@@ -1,13 +1,3 @@
-"""
-Sistema de Votación Simple
-Actividad: ramas y versionado con Git (SENA - ADSO)
-
-Cada función se implementa en una rama distinta:
-  - rama-registro   -> registrar_voto()
-  - rama-resultados -> ver_resultados()
-  - rama-reinicio   -> reiniciar_votacion()
-"""
-
 # Candidatos disponibles para votar
 CANDIDATOS = ["Candidato A", "Candidato B", "Candidato C"]
 
